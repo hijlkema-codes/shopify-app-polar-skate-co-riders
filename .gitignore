@@ -27,8 +27,4 @@ extensions/*/dist
 # Ignore shopify files created during app dev
 .shopify/*
 .shopify.lock
-/.idea/.gitignore
-/.idea/git_toolbox_blame.xml
-/.idea/modules.xml
-/.idea/polar-skate-co-riders.iml
-/.idea/vcs.xml
+/.idea
