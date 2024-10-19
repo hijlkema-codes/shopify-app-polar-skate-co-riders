@@ -1,0 +1,58 @@
+.riders-overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+rider-showreel {
+    isolation: isolate;
+    position: relative;
+    display: flex;
+    apsect-ratio: 16/9;
+}
+
+rider-showreel video {
+    width: 100%;
+    apsect-ratio: 16/9;
+}
+
+rider-showreel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgb(0 0 0 / 50%);
+    transition: background-color 0.5s ease-in-out;
+}
+
+rider-showreel h3 {
+    margin-block: 0;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 3;
+
+    transition: opacity 0.5s ease-in-out 0.15s, transform 0.5s ease-in-out 0.1s;
+}
+
+rider-showreel:hover::after {
+    background-color: rgb(0 0 0 / 0%);
+}
+
+rider-showreel:hover h3 {
+    opacity: 0.1;
+    transform: translateY(-100%) translateX(-50%);
+}
+
+@media (min-width: 768px) {
+    rider-showreel h3 {
+        font-size: 40px;
+    }
+
+    .riders-overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

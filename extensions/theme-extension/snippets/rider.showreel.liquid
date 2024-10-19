@@ -1,0 +1,12 @@
+{% comment %}
+    This snippet displays the showreel of a rider.
+
+    It requires a RiderDrop object
+{% endcomment %}
+
+<rider-showreel>
+    <video poster="{{ rider.showreel_thumbnail | img_url: '300x900' }}" muted>
+        <source src="{{ rider.showreel | file_url }}" type="video/mp4">
+    </video>
+    <h3>{{ rider.name }}</h3>
+</rider-showreel>

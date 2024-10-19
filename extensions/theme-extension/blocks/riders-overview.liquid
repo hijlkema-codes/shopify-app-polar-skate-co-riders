@@ -1,0 +1,42 @@
+{% comment %}
+    This block registers the custom code required to show the riders overview on any page.
+
+    It loads the riders automatically and shows them in a 2 column grid.
+
+    TYPE RiderDrop:
+        - name: string
+        - showreel: file
+        - showreel_thumbnail: file
+{% endcomment %}
+{% liquid
+    assign settings = block.settings
+
+    assign block_id = block.id
+    assign wrapper_id = 'riders-overview-' | append: block_id
+
+    assign riders = shop.metaobjects.rider.values
+%}
+
+{% comment %} Block specific logic {% endcomment %}
+{% liquid
+    assign wrapper_id_css = "#" |  append: wrapper_id
+%}
+{% comment %} Styling {% endcomment %}
+<style></style>
+
+{% comment %} Block markup {% endcomment %}
+<div class="riders-overview has-showreel" id="{{ wrapper_id }}">
+    {% for rider in riders %}
+        {% render 'rider.showreel' with rider as rider %}
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "t:Blocks.RiderOverview.Name",
+  "target": "section",
+  "javascript": "rider-showreel.js",
+  "stylesheet": "rider-showreel.css",
+  "settings": []
+}
+{% endschema %}

@@ -21,10 +21,14 @@ extensions/*/dist
 
 # lock files
 
-
-
-
 # Ignore shopify files created during app dev
 .shopify/*
 .shopify.lock
+
+# Ignore IntelliJ IDEA files
 /.idea
+
+# Ingore build files
+extensions/theme-extension/assets/rider-showreel.css
+extensions/theme-extension/assets/rider-showreel.js
+
