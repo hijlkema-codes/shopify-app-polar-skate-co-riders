@@ -51,7 +51,7 @@ export const setElementLoading = (element, isLoading = true) => {
 
 export const ensureElementHasId = (element) => {
     if (!element.id) {
-        element.id = `id-${Math.random().toString(36).substr(2, 9)}`;
+        element.id = `id-${Math.random().toString(36).substring(2, 9)}`;
     }
 
     return element.id;
