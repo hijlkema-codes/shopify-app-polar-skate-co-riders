@@ -17,6 +17,7 @@ class RiderShowreel extends HTMLElement {
     }
 
     playVideo() {
+        // noinspection JSIgnoredPromiseFromCall
         this.querySelector('video').play();
     }
 
