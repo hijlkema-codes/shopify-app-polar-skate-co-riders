@@ -2,7 +2,6 @@
 
 client_id = "3882cd7de0823cc5697d21968ba3e2e1"
 name = "polar-skate-co-riders"
-handle = "polar-skate-co-riders"
 application_url = "https://example.com/"
 embedded = true
 
