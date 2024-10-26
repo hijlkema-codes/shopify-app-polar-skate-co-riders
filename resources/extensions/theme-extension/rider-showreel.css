@@ -9,6 +9,7 @@ rider-showreel {
     position: relative;
     display: flex;
     apsect-ratio: 16/9;
+    cursor: pointer;
 }
 
 rider-showreel video {
@@ -27,9 +28,9 @@ rider-showreel::after {
 rider-showreel h3 {
     margin-block: 0;
     position: absolute;
-    top: 2rem;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     font-size: 20px;
     text-transform: uppercase;
     color: #fff;
@@ -38,13 +39,56 @@ rider-showreel h3 {
     transition: opacity 0.5s ease-in-out 0.15s, transform 0.5s ease-in-out 0.1s;
 }
 
+rider-showreel a {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
 rider-showreel:hover::after {
     background-color: rgb(0 0 0 / 0%);
 }
 
 rider-showreel:hover h3 {
-    opacity: 0.1;
-    transform: translateY(-100%) translateX(-50%);
+
+}
+
+.rider-overview--list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+}
+
+.rider__list--anchor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rider__list--anchor svg {
+    width: 1em;
+    height: 1em;
+    font-size: 20px;
+    opacity: 0.4;
+    transform: translateX(-0.1rem);
+    transition: opacity 0.5s ease-in-out, transform 0.2s ease-in-out 0.1s;
+}
+
+.rider__list--anchor .h1 {
+    margin-bottom: 0;
+}
+
+.rider__list--anchor:hover svg {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.rider-overview--list > * + * {
+    margin-top: 1.5rem;
 }
 
 @media (min-width: 768px) {

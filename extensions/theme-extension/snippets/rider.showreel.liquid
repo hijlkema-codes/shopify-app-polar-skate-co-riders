@@ -4,9 +4,14 @@
     It requires a RiderDrop object
 {% endcomment %}
 
-<rider-showreel>
+<rider-showreel id="rider-{{ rider.system.handle }}">
     <video poster="{{ rider.showreel_thumbnail | img_url: '300x900' }}" muted>
         <source src="{{ rider.showreel | file_url }}" type="video/mp4">
     </video>
+
     <h3>{{ rider.name }}</h3>
+
+    {% unless rider.system.url == blank %}
+        <a href="{{ rider.system.url }}" aria-label="View {{ rider.name }} details"></a>
+    {% endunless %}
 </rider-showreel>
