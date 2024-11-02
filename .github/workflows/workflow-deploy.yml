@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         # Enter the 3 shopify api codes for the three different extensions.
-        target: ['3882cd7de0823cc5697d21968ba3e2e1']
+        target: ['3882cd7de0823cc5697d21968ba3e2e1', 'fe41bd81dd1aa26c2e000a18ce324e8a', 'c02d5f678534fa60937a4ba35c86270e']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
@@ -23,7 +23,7 @@ jobs:
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli@latest
       - name: Build
-        run: npm run build
+        run: npm run resources
       - name: Deploy
         env:
           # Token from the partner dashboard
