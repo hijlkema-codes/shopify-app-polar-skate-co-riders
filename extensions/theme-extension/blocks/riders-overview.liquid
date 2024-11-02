@@ -2,11 +2,6 @@
     This block registers the custom code required to show the riders overview on any page.
 
     It loads the riders automatically and shows them in a 2 column grid.
-
-    TYPE RiderDrop:
-        - name: string
-        - showreel: file
-        - showreel_thumbnail: file
 {% endcomment %}
 {% liquid
     assign settings = block.settings
@@ -34,10 +29,22 @@
         {% render 'rider.showreel' with rider as rider %}
         {% render 'rider.showreel' with rider as rider %}
         {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
+        {% render 'rider.showreel' with rider as rider %}
     {% endfor %}
 
     <ul class="rider-overview--list">
        {% for rider in riders %}
+            <li>{% render 'rider.li' with rider as rider %}</li>
+            <li>{% render 'rider.li' with rider as rider %}</li>
+            <li>{% render 'rider.li' with rider as rider %}</li>
+            <li>{% render 'rider.li' with rider as rider %}</li>
+            <li>{% render 'rider.li' with rider as rider %}</li>
+            <li>{% render 'rider.li' with rider as rider %}</li>
             <li>{% render 'rider.li' with rider as rider %}</li>
             <li>{% render 'rider.li' with rider as rider %}</li>
             <li>{% render 'rider.li' with rider as rider %}</li>

@@ -1,0 +1,53 @@
+{% comment %}
+    This block registers the custom code required to show the riders on a single rider page.
+
+    It loads the riders automatically and show 2 of them in a column grid.
+{% endcomment %}
+{% liquid
+    assign settings = block.settings
+
+    assign block_id = block.id
+    assign wrapper_id = 'riders-related-' | append: block_id
+    assign title_id = 'riders-related-title-' | append: block_id
+
+    assign title = settings.title
+    assign riders = metaobject.related_riders.value
+%}
+
+{% comment %} Block specific logic {% endcomment %}
+{% liquid
+    assign wrapper_id_css = "#" | append: wrapper_id
+    assign title_id_css = "#" | append: title_id
+%}
+
+{% comment %} Styling {% endcomment %}
+<style>
+    {{ title_id_css }} { text-align: center; margin-bottom: 30px; }
+</style>
+
+{% comment %} Markup {% endcomment %}
+
+<h2 id="{{ title_id }}">{{ title }}</h2>
+<div class="riders-overview has-showreel" id="{{ wrapper_id }}">
+    {% liquid
+        for rider in riders
+            render 'rider.showreel' with rider as rider
+        endfor
+    %}
+</div>
+
+{% schema %}
+{
+  "name": "t:Blocks.RiderRelated.Name",
+  "target": "section",
+  "javascript": "rider-showreel.js",
+  "stylesheet": "rider-showreel.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:Blocks.RiderRelated.Title"
+    }
+  ]
+}
+{% endschema %}

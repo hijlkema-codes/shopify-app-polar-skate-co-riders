@@ -1,0 +1,115 @@
+{% comment %}
+    This block register the custom code required to show the related blogs on a rider page.
+
+    It loads the related articles using the blog passed in the settings.
+{% endcomment %}
+{% liquid
+    assign settings = block.settings
+
+    assign block_id = block.id
+    assign wrapper_id = 'blog-overview-' | append: block_id
+    assign title_id = 'blog-overview-title-' | append: block_id
+
+    assign title = settings.title
+    assign blog = settings.source_blog
+%}
+
+{% comment %} Block specific logic {% endcomment %}
+{% liquid
+    assign wrapper_id_css = "#" |  append: wrapper_id
+    assign title_id_css = "#" |  append: title_id
+%}
+
+{% comment %} Styling {% endcomment %}
+<style>
+    {{ title_id_css }} { text-align: center; margin-bottom: 30px; }
+</style>
+
+{% comment %} Markup {% endcomment %}
+<div class="riders-blogs-related grid grid--uniform" id="{{ block_id }}">
+    <h2 id="{{ title_id }}">{{ title }}</h2>
+
+    {% liquid
+        assign image_size = "wide"
+        assign fixed_aspect_ratio = true
+    %}
+
+    {% for article in blogs[blog].articles %}
+        {% liquid
+            assign has_rider = false
+
+            for article_related_rider in article.metafields.custom.related_riders.value
+                if article_related_rider.system.handle == metaobject.system.handle
+                    assign has_rider = true
+                endif
+            endfor
+        %}
+
+        {% if has_rider %}
+            <article class="grid__item medium-up--one-third aos-animate" data-aos="row-of-3">
+            <div class="grid">
+                <div class="grid__item small--one-third">
+                    {%- if article.image -%}
+                        <a href="{{ article.url }}" class="article__grid-image" aria-label="{{ article.title | escape }}">
+                            {%- if fixed_aspect_ratio -%}
+                                <div class="image-wrap">
+                                    <div class="grid__image-ratio grid__image-ratio--{{ image_size }}">
+                                        {%- render 'image-element',
+                                                img: article.image,
+                                                sizes: '33vw',
+                                                widths: '360, 540, 720, 900, 1080'
+                                        -%}
+                                    </div>
+                                </div>
+                            {%- else -%}
+                                <div class="image-wrap" style="height: 0; padding-bottom: {{ 100 | divided_by: article.image.aspect_ratio }}%;">
+                                    {%- render 'image-element',
+                                            img: article.image,
+                                            sizes: '33vw',
+                                            widths: '180, 360, 540, 720, 900, 1080'
+                                    -%}
+                                </div>
+                            {%- endif -%}
+                        </a>
+                    {%- else -%}
+                        <div class="article__grid-image">
+                            <div class="image-wrap">
+                                <div class="grid__image-ratio grid__image-ratio--{{ image_size }}"></div>
+                            </div>
+                        </div>
+                    {%- endif -%}
+                </div>
+                <div class="grid__item small--two-thirds">
+                    <div class="article__grid-meta">
+                        {% comment %} Meta {% endcomment %}
+
+                        <div class="article__date">
+                            <time  datetime="{{ article.published_at | date: '%FT%T%:z'}}">{{ article.published_at | date: '%b %d, %Y'}}</time>
+                        </div>
+                        <a class="article__title" href="{{ article.url }}">{{ article.title }}</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "t:Blocks.BlogsRelated.Name",
+    "target": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:Blocks.BlogsRelated.Title"
+      },
+      {
+        "type": "blog",
+        "id": "source_blog",
+        "label": "t:Blocks.BlogsRelated.SourceBlog"
+      }
+    ]
+}
+{% endschema %}
