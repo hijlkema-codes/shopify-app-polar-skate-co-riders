@@ -3,10 +3,11 @@
 client_id = "3882cd7de0823cc5697d21968ba3e2e1"
 name = "polar-skate-co-riders"
 handle = "polar-skate-co-riders"
-application_url = "https://shopify.dev/apps/default-app-home"
+application_url = "https://example.com/"
 embedded = true
 
 [build]
+dev_store_url = "polar-skate-codes.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]

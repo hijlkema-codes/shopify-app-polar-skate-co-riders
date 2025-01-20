@@ -5,15 +5,17 @@
 }
 
 rider-showreel {
+    --aspect-ratio: 1/1;
+
     isolation: isolate;
     position: relative;
     display: flex;
-    apsect-ratio: 16/9;
+    aspect-ratio: var(--aspect-ratio);
 }
 
 rider-showreel video {
     width: 100%;
-    apsect-ratio: 16/9;
+    aspect-ratio: var(--aspect-ratio);
 }
 
 rider-showreel::after {
