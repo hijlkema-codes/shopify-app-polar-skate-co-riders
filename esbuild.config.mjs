@@ -17,6 +17,8 @@ const entryPoints = files.map(f => path.join(assetDir, f));
 
 const outputDir = path.join(__dirname, "extensions", "theme-extension", "assets");
 
+console.log(`Building ${entryPoints.length} assets to ${outputDir}`);
+
 await esbuild.build({
     entryPoints: [...entryPoints],
     bundle: true,
@@ -24,3 +26,5 @@ await esbuild.build({
     minify: true,
     sourcemap: process.argv.join('|').includes('|--dev|'),
 });
+
+console.log("Done building");
