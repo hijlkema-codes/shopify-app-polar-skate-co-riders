@@ -1,19 +1,24 @@
-import {bindEventListeners} from "./utils/html.mjs";
+import { hover, inView } from "motion";
 
 class RiderShowreel extends HTMLElement {
     connectedCallback() {
         super.connectedCallback?.();
 
-        bindEventListeners(this, [
-            {
-                type: "mouseenter",
-                handler: this.playVideo.bind(this)
-            },
-            {
-                type: "mouseleave",
-                handler: this.pauseVideo.bind(this)
-            }
-        ])
+        const isMobileMatcher = window.matchMedia('(max-width: 768px)');
+
+        hover(this, () => {
+            this.playVideo();
+
+            return () => this.pauseVideo()
+        })
+
+        if (isMobileMatcher.matches) {
+            inView(this, () => {
+                this.playVideo();
+
+                return () => this.pauseVideo()
+            }, {amount: 0.75, margin: '-133px 0px 0px'})
+        }
     }
 
     playVideo() {

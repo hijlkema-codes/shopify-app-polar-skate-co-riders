@@ -27,5 +27,8 @@
   "private": true,
   "workspaces": [
     "extensions/*"
-  ]
+  ],
+  "devDependencies": {
+    "motion": "^12.5.0"
+  }
 }

@@ -1,17 +1,17 @@
 {% comment %}
-    This snippet displays the showreel of a rider.
+  This snippet displays the showreel of a rider.
 
-    It requires a RiderDrop object
+  It requires a RiderDrop object
 {% endcomment %}
 
 <rider-showreel id="rider-{{ rider.system.handle }}">
-    <video poster="{{ rider.showreel_thumbnail | img_url: '300x900' }}" muted>
-        <source src="{{ rider.showreel | file_url }}" type="video/mp4">
-    </video>
+  <video poster="{{ rider.showreel_thumbnail | img_url: '300x900' }}" muted loop playsinline>
+    <source src="{{ rider.showreel | file_url }}" type="video/mp4">
+  </video>
 
-    <h3>{{ rider.name }}</h3>
+  <h3>{{ rider.name }}</h3>
 
-    {% unless rider.system.url == blank %}
-        <a href="{{ rider.system.url }}" aria-label="View {{ rider.name }} details"></a>
-    {% endunless %}
+  {% unless rider.system.url == blank %}
+    <a href="{{ rider.system.url }}" aria-label="View {{ rider.name }} details"></a>
+  {% endunless %}
 </rider-showreel>
