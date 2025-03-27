@@ -1,0 +1,147 @@
+{
+ 	"id": "gid://shopify/MetaobjectDefinition/10245931346",
+ 	"name": "Rider",
+ 	"type": "rider",
+ 	"description": "",
+ 	"displayNameKey": "name",
+ 	"fieldDefinitions": [
+ 		{
+ 			"name": "name",
+ 			"description": "",
+ 			"key": "name",
+ 			"required": true,
+ 			"type": {
+ 				"name": "single_line_text_field",
+ 				"category": "TEXT",
+ 				"supportsDefinitionMigrations": true
+ 			},
+ 			"validations": []
+ 		},
+ 		{
+ 			"name": "Showreel",
+ 			"description": "",
+ 			"key": "showreel",
+ 			"required": true,
+ 			"type": {
+ 				"name": "file_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": [
+ 				{
+ 					"name": "file_type_options",
+ 					"type": "list.single_line_text_field",
+ 					"value": "[\"Video\"]"
+ 				}
+ 			]
+ 		},
+ 		{
+ 			"name": "Showreel thumbnail",
+ 			"description": "",
+ 			"key": "showreel_thumbnail",
+ 			"required": true,
+ 			"type": {
+ 				"name": "file_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": [
+ 				{
+ 					"name": "file_type_options",
+ 					"type": "list.single_line_text_field",
+ 					"value": "[\"Image\"]"
+ 				}
+ 			]
+ 		},
+ 		{
+ 			"name": "Quote",
+ 			"description": "",
+ 			"key": "quote",
+ 			"required": true,
+ 			"type": {
+ 				"name": "rich_text_field",
+ 				"category": "TEXT",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": []
+ 		},
+ 		{
+ 			"name": "Portrait image 1",
+ 			"description": "",
+ 			"key": "portrait_image_1",
+ 			"required": true,
+ 			"type": {
+ 				"name": "file_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": [
+ 				{
+ 					"name": "file_type_options",
+ 					"type": "list.single_line_text_field",
+ 					"value": "[\"Image\"]"
+ 				}
+ 			]
+ 		},
+ 		{
+ 			"name": "Portrait image 2",
+ 			"description": "",
+ 			"key": "portrait_image_2",
+ 			"required": true,
+ 			"type": {
+ 				"name": "file_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": [
+ 				{
+ 					"name": "file_type_options",
+ 					"type": "list.single_line_text_field",
+ 					"value": "[\"Image\"]"
+ 				}
+ 			]
+ 		},
+ 		{
+ 			"name": "Additional content",
+ 			"description": "",
+ 			"key": "additional_content",
+ 			"required": true,
+ 			"type": {
+ 				"name": "rich_text_field",
+ 				"category": "TEXT",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": []
+ 		},
+ 		{
+ 			"name": "Collection",
+ 			"description": "",
+ 			"key": "collection",
+ 			"required": true,
+ 			"type": {
+ 				"name": "collection_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": []
+ 		},
+ 		{
+ 			"name": "Related riders",
+ 			"description": "",
+ 			"key": "related_riders",
+ 			"required": true,
+ 			"type": {
+ 				"name": "list.metaobject_reference",
+ 				"category": "REFERENCE",
+ 				"supportsDefinitionMigrations": false
+ 			},
+ 			"validations": [
+ 				{
+ 					"name": "metaobject_definition_id",
+ 					"type": "single_line_text_field",
+ 					"value": "gid://shopify/MetaobjectDefinition/10245931346"
+ 				}
+ 			]
+ 		}
+ 	]
+ }
