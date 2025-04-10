@@ -4,7 +4,8 @@
       "Name": "Riders"
     },
     "RiderRelated": {
-      "Name": "Related riders"
+      "Name": "Related riders",
+      "Title": "Title"
     },
     "BlogsRelated": {
       "Name": "Rider related blogs",
