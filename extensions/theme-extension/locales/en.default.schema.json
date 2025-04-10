@@ -1,0 +1,15 @@
+{
+  "Blocks": {
+    "RiderOverview": {
+      "Name": "Riders"
+    },
+    "RiderRelated": {
+      "Name": "Related riders"
+    },
+    "BlogsRelated": {
+      "Name": "Rider related blogs",
+      "Title": "Title",
+      "SourceBlog": "Source blog"
+    }
+  }
+}
