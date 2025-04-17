@@ -2,19 +2,20 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
+    place-items: center;
 }
 
 rider-showreel {
     isolation: isolate;
     position: relative;
     display: flex;
-    apsect-ratio: 16/9;
+    aspect-ratio: 1/1;
     cursor: pointer;
 }
 
 rider-showreel video {
     width: 100%;
-    apsect-ratio: 16/9;
+    aspect-ratio: 1/1;
 }
 
 rider-showreel::after {
