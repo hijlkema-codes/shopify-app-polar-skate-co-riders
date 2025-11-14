@@ -18,7 +18,7 @@
     assign riders_count = 0
 
     for rider in riders
-        increment rider_count
+        assign rider_count = riders_count | plus: 1
     endfor
 
     assign mobile_riders_per_column = 1
