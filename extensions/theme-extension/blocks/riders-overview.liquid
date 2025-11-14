@@ -15,7 +15,7 @@
 {% comment %} Block specific logic {% endcomment %}
 {% liquid
     assign wrapper_id_css = "#" |  append: wrapper_id
-    assign riders_count = 0
+    assign riders_count = 1
 
     for rider in riders
         assign rider_count = riders_count | plus: 1
