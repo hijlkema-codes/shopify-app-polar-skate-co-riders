@@ -15,7 +15,12 @@
 {% comment %} Block specific logic {% endcomment %}
 {% liquid
     assign wrapper_id_css = "#" |  append: wrapper_id
-    assign riders_count = riders.size
+    assign riders_count = 0
+
+    for rider in riders
+        increment rider_count
+    endfor
+
     assign mobile_riders_per_column = 1
     assign desktop_riders_per_column = 2
     assign grid_rows_desktop = riders_count | divided_by: desktop_riders_per_column | ceil
