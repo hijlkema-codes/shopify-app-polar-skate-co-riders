@@ -20,7 +20,7 @@ rider-showreel video {
 }
 
 rider-showreel::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background-color: rgb(0 0 0 / 50%);
@@ -39,7 +39,9 @@ rider-showreel h3 {
     color: #fff;
     z-index: 3;
 
-    transition: opacity 0.5s ease-in-out 0.15s, transform 0.5s ease-in-out 0.1s;
+    transition:
+        opacity 0.5s ease-in-out 0.15s,
+        transform 0.5s ease-in-out 0.1s;
 }
 
 rider-showreel a {
@@ -70,6 +72,9 @@ rider-showreel:hover h3 {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1.5rem;
 }
 
 .rider__list--anchor svg {
@@ -78,7 +83,9 @@ rider-showreel:hover h3 {
     font-size: 20px;
     opacity: 0.4;
     transform: translateX(-0.1rem);
-    transition: opacity 0.5s ease-in-out, transform 0.2s ease-in-out 0.1s;
+    transition:
+        opacity 0.5s ease-in-out,
+        transform 0.2s ease-in-out 0.1s;
 }
 
 .rider__list--anchor .h1 {
@@ -94,12 +101,27 @@ rider-showreel:hover h3 {
     margin-top: 1.5rem;
 }
 
+.rider-overview--list {
+    grid-row-start: var(--grid-row-start-mobile, 1);
+    align-self: flex-start;
+    top: 10rem;
+    justify-self: stretch;
+    align-items: stretch;
+}
+
 @media (min-width: 768px) {
     rider-showreel h3 {
         font-size: 40px;
     }
 
+    .rider-overview--list {
+        grid-row-start: 1;
+        grid-column: 3;
+        grid-row-end: var(--grid-row-end-desktop, 7);
+        position: sticky;
+    }
+
     .riders-overview {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }

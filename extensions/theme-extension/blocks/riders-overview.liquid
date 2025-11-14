@@ -15,9 +15,21 @@
 {% comment %} Block specific logic {% endcomment %}
 {% liquid
     assign wrapper_id_css = "#" |  append: wrapper_id
+    assign riders_count = riders | size
+    assign mobile_riders_per_column = 1
+    assign desktop_riders_per_column = 2
+    assign grid_rows_desktop = riders_count | divided_by: desktop_riders_per_column | ceil
+    assign grid_row_end_desktop = grid_rows_desktop | plus: 0
+    assign grid_rows_mobile = riders_count | divided_by: mobile_riders_per_column | ceil
+    assign grid_row_start_mobile = grid_rows_mobile | plus: 1
 %}
 {% comment %} Styling {% endcomment %}
-<style></style>
+<style>
+.rider-overview--list {
+    --grid-row-start-mobile: {{  grid_row_start_mobile }};
+    --grid-row-end-desktop: {{ grid_row_end_desktop }};
+}
+</style>
 
 {% comment %} Block markup {% endcomment %}
 <div class="riders-overview has-showreel" id="{{ wrapper_id }}">
